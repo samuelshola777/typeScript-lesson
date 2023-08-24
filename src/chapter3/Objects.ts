@@ -35,11 +35,16 @@ const exampleObj = {
 };
 exampleObj.prop1 = "jhon";
 
-type Guitarist = {
-  name: string;
+interface GuitaristZ {
+  name?: string;
   active?: boolean; // the question make makes it optional
   albums: (string | number)[];
-};
+}
+// type Guitarist = {
+//   name: string;
+//   active?: boolean; // the question make makes it optional
+//   albums: (string | number)[];
+// };
 
 let evh: Guitarist = {
   name: "jhon",
@@ -54,7 +59,22 @@ let JP: Guitarist = {
 };
 
 const greetGuitarist = (guitarist: Guitarist) => {
-  return `Hello ${guitarist.name}!`;
+  if (guitarist.name) {
+    // perform operation on an undifined variable you have to make it undefined
+    return `Hello ${guitarist.name?.toLocaleLowerCase}!`;
+  }
+  return "Hello!";
 };
 
 console.log(greetGuitarist(JP));
+
+//ENums
+enum Grade {
+  U,
+  D,
+  C,
+  B,
+  A,
+  E,
+  F,
+}

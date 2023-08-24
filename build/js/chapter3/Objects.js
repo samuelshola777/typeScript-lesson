@@ -28,6 +28,11 @@ const exampleObj = {
     prop2: true,
 };
 exampleObj.prop1 = "jhon";
+// type Guitarist = {
+//   name: string;
+//   active?: boolean; // the question make makes it optional
+//   albums: (string | number)[];
+// };
 let evh = {
     name: "jhon",
     active: false,
@@ -39,6 +44,22 @@ let JP = {
     albums: ["I", "II", "IV"],
 };
 const greetGuitarist = (guitarist) => {
-    return `Hello ${guitarist.name}!`;
+    var _a;
+    if (guitarist.name) {
+        // perform operation on an undifined variable you have to make it undefined
+        return `Hello ${(_a = guitarist.name) === null || _a === void 0 ? void 0 : _a.toLocaleLowerCase}!`;
+    }
+    return "Hello!";
 };
 console.log(greetGuitarist(JP));
+//ENums
+var Grade;
+(function (Grade) {
+    Grade[Grade["U"] = 0] = "U";
+    Grade[Grade["D"] = 1] = "D";
+    Grade[Grade["C"] = 2] = "C";
+    Grade[Grade["B"] = 3] = "B";
+    Grade[Grade["A"] = 4] = "A";
+    Grade[Grade["E"] = 5] = "E";
+    Grade[Grade["F"] = 6] = "F";
+})(Grade || (Grade = {}));
