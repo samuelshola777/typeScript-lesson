@@ -35,9 +35,38 @@ const addAll = (a, b, c) => {
     }
     return a + b;
 };
-const sumAll = (a, b, c) => {
-    if (typeof c !== "undefined") {
-        return a + b + c;
+const sumAll = (a, b, c = 2) => {
+    return a + b * c;
+};
+logMsg(addAll(2, 3, 2));
+logMsg(addAll(2, 3));
+logMsg(sumAll(2, 3));
+// rest parameters
+const total = (...noActualLenghtOfNumber) => {
+    return noActualLenghtOfNumber.reduce((prev, curr) => prev + curr);
+};
+// the never type
+const createError = (errMsg) => {
+    throw new Error(errMsg);
+};
+const infinite = () => {
+    let i = 1;
+    while (true) {
+        i++;
+        if (i > 100)
+            break;
     }
-    return a + b;
+};
+// custom type guard
+const isNumber = (value) => {
+    return typeof value === "number" ? true : false;
+};
+// ne never type example
+const nuberOrString = (value) => {
+    if (typeof value === "string")
+        return "string";
+    if (isNumber(value))
+        return "number";
+    //  if(typeof value === 'number') return 'number';
+    return createError("this should never happen!");
 };

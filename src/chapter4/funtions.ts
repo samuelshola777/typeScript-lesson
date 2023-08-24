@@ -66,7 +66,7 @@ const addAll = (a: number, b: number, c?: number): number => {
 };
 
 const sumAll = (a: number, b: number, c: number = 2): number => {
-  return a + b;
+  return a + b * c;
 };
 
 logMsg(addAll(2, 3, 2));
